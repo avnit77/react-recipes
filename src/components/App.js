@@ -1,9 +1,10 @@
 import React from 'react';
-
+import Search from './Search';
 export default function App() {
+
   return (
-    <div className="app">
-      <h1>Recipes</h1>
-    </div>
+    <>
+      <Search />
+    </>
   );
 }
