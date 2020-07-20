@@ -1,0 +1,9 @@
+.Header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Text {
+    flex-direction: column;
+}

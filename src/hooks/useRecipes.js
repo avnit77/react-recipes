@@ -17,6 +17,7 @@ export const useRecipes = () => {
       .then(recipes => {
         console.log('RECIPES', recipes.hits);
         setRecipes(recipes.hits);
+        setSearchTerm('');
       });
   };
 

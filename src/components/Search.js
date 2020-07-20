@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Recipes } from './Recipes';
 import { useRecipes } from '../hooks/useRecipes';
+import styles from  './Search.css';
 
 const Search = () => {
   const { recipes, handleSearch, searchTerm, setSearchTerm } = useRecipes();
@@ -9,10 +10,10 @@ const Search = () => {
   };
 
   return (
-    <div className="search">
-      <form onSubmit={handleSearch} className="search-form">
-        <input className="search-bar" type="text" value={searchTerm} onChange={handleChange}/>
-        <button className ="search-button" type="submit">Search</button>
+    <div className={styles.search}>
+      <form onSubmit={handleSearch} className={styles.searchForm}>
+        <input className={styles.input} placeholder="food" type="text" value={searchTerm} onChange={handleChange}/>
+        <button type="submit"> Find It </button>
       </form>
       <Recipes recipes={recipes} />
     </div>
