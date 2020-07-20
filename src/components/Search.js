@@ -1,38 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import Recipe from './Recipe';
-import { getRecipes } from '../services/edamamApi';
+import React from 'react';
+import { Recipes } from './Recipes';
+import { useRecipes } from '../hooks/useRecipes';
 
-const Search = () =>  {
-
-  const [recipes, setRecipes] = useState([]);
-  const [search, setSearch] = useState('');
-  const [query, setQuery] = useState('');
-
-  useEffect(() => {
-    getRecipes();
-  }, [query]);
-
+const Search = () => {
+  const { recipes, handleSearch, searchTerm, setSearchTerm } = useRecipes();
   const handleChange = (event) => {
-    setSearch(event.target.value);
+    setSearchTerm(event.target.value);
   };
 
-  const getSearch = (event) => {
-    event.preventDefault();
-    setQuery(search);
-  };
   return (
     <div className="search">
-      <form onSubmit={getSearch}className="search-form">
-        <input className="search-bar" type="text" value={search} onChange={handleChange}/>
+      <form onSubmit={handleSearch} className="search-form">
+        <input className="search-bar" type="text" value={searchTerm} onChange={handleChange}/>
         <button className ="search-button" type="submit">Search</button>
       </form>
-      {recipes.map(recipe => (
-        <Recipe
-          title={recipe.recipe.label}
-          diet={recipe.recipe.dietLabels}
-          image={recipe.recipe.image}
-        />
-      ))}
+      <Recipes recipes={recipes} />
     </div>
   );
 };
