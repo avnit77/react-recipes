@@ -13,7 +13,7 @@ const Recipe = ({ title, diet, image }) => {
 
 Recipe.propTypes = {
   title: PropTypes.string.isRequired,
-  diet: PropTypes.string.isRequired,
+  diet: PropTypes.array.isRequired,
   image: PropTypes.string.isRequired
 };
 

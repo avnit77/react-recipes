@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 export const Recipes = ({ recipes }) => {
   const recipesElements = recipes.map(recipe => {
     return (
-      <li key={recipe.id} >
+      <li key={recipe.recipe.uri} >
         <Recipe
           title={recipe.recipe.label}
           diet={recipe.recipe.dietLabels}
