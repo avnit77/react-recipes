@@ -13,7 +13,7 @@ const Search = () => {
     <div className={styles.search}>
       <form onSubmit={handleSearch} className={styles.searchForm}>
         <input className={styles.input} placeholder="food" type="text" value={searchTerm} onChange={handleChange}/>
-        <button type="submit"> Find It </button>
+        <button type="submit"> Find </button>
       </form>
       <Recipes recipes={recipes} />
     </div>
